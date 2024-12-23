@@ -4,8 +4,8 @@ const urlBase = process.env.NEXT_PUBLIC_API_URL
 
 export default function useAPI() {
     const httpGet = useCallback(async function (caminho: string) {
-        const uri = caminho.startsWith('/') ? caminho : `/${caminho}`
-        const urlCompleta = `${urlBase}${uri}`
+        const url = caminho.startsWith('/') ? caminho : `/${caminho}`
+        const urlCompleta = `${urlBase}${url}`
 
         const resposta = await fetch(urlCompleta)
         return extrairDados(resposta)
